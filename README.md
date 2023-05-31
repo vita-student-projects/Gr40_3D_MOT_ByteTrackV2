@@ -133,15 +133,23 @@ Results for the Jonke-Volgenant algorithm threshold
 Results for the Dhigh/Dlow threshold
  ![](https://github.com/GKrafft2/DLAV/blob/main/graphs/megvii_conf_0109.png)
  
-Following these 2 graphs, we've settled on a value of 0.4 for the confidence threshold ( for the Dhigh and Dlow), and a value of 0.6 for the  Jonker-Volgenant algorithm.
+Following these 2 graphs, we've settled on a value of 0.4 for the confidence threshold ( for the Dhigh and Dlow), and a value of 0.6 for the Jonker-Volgenant algorithm. We've settled on these values, as they provided us with the best amota score, and the best IDS score. These two metrics are the one we aim at improving.
 
-We also tested different values of alpha as well as not updating the R  matrix in the Kalman filter.  and we've settled on a  XXXXX
+We also tested different values of alpha as well as not updating the R  matrix in the Kalman filter.
 
 Results for the Kalman filter experiments
 ![](https://github.com/GKrafft2/DLAV/blob/main/graphs/megvii_kalman_var.png)
 
+Similarly as before, we aim for the best amota and IDS score. In this case, it means no R update, despite it being in the original ByteTrack's algorithm.
 
+By using all of these values, we have optained the following results:
+|  metrics 	 | amota          |   amotp        | motar          |  mota          | motp | 
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+| BEVFORMER(validation)  |  0,299 | 1,263          | 0,523          | 0,2559         | 0,7227 |
+| MEGVII(validation)  |           |                |                |                | |
+| Transfusion(testing \*) | 0,4768 | 0,977         | 0,739          |  0,4335 | 0,289 |
 
+Please note that the first two results were obtained by doing evaluation on our own machines, while the transfusion one, was done on the nuscene server, on the test set used for their leaderboard. 
 ## How to run
 
 For this, you will need anaconda installed. You can follow the instructions [here](https://www.anaconda.com/download). Then, in anaconda's terminal, run the following:
