@@ -19,14 +19,12 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 #----Local imports----#
-import math_algo as ma
-from Kalman import KalmanFilter
-import covariance
+import tools.math_algo as ma
+from tools.Kalman import KalmanFilter
+import tools.covariance as covariance
 
 #----Global variables----#
 
-DETECTION_PATH_TRANSFUSION = "data/detection_transfusion/"
-DETECTION_PATH_MEGVII      = "data/detection_megvii/"
 TRACKING_PATH              = "data/tracking/"
 TRAINVAL_PATH              = "data/trainval/"
 TEST_PATH                  = "data/test/"
@@ -171,7 +169,7 @@ def load_data(dataset=None, detection_path=None, eval_split=None, verbose=True):
     if verbose:
         print("✅Predictions succesfully loaded✅")
 
-    if eval_split is not 'test':
+    if eval_split != 'test':
         if verbose:
             print("⚙️Loading ground truth...⚙️")
         gt_boxes = load_gt(nusc, eval_split = eval_split, box_cls=DetectionBox, verbose=True)
