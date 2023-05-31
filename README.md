@@ -146,7 +146,7 @@ Similarly as before, we aim for the best amota and IDS score. In this case, it m
 By using all of these values, we have optained the following results:
 |  metrics 	 | amota          |   amotp        | motar          |  mota          | motp | 
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
-| MEGVII(validation)  |           |                |                |                | |
+| MEGVII(validation)  | 0.373     | 1.02           | 0.660          | 0.319          | 0.3548 |
 | BEVFORMER(validation)  |  0.299 | 1.263          | 0.523          | 0.2559         | 0.7227 |
 | Transfusion(testing \*) | 0.4768 | 0.977         | 0.739          |  0.4335        | 0.289 |
 
@@ -193,7 +193,8 @@ There are multiple notebook that can help you run our code. Mainly, [ByteTrack.i
 ```
 
 
-Additionnaly, you can run XXX notebook if you want to be provided with visual output in the form of the gifs presented above.
+Additionnaly, you can run the [Visualiser Notebook](https://github.com/vita-student-projects/Gr40_3D_MOT_ByteTrackV2/blob/main/Visualiser.ipynb) if you want to be provided with visual output in the form of the gifs presented above.
+Finally, you can evaluate your results using [Evaluate_tracking](https://github.com/vita-student-projects/Gr40_3D_MOT_ByteTrackV2/blob/main/Evaluate_tracking.ipynb).
 
 We do not provide any dataset.py, train.py or inference.py, as our method do not include any learning process.
 
