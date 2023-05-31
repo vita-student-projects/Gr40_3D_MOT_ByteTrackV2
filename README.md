@@ -208,6 +208,8 @@ We provide our version of the ByteTrackv2, fully open-source, as mentionned in t
 
 Even if we didn't get access to SOTA detectors, we can compare the results obtained by MVBytetrack, which currently ranks 5th in the nuscenes tracking task leaderboard with a camera-only detector. Comparing this with our camera-only tracking scenario (BEVFormer + ByteTrack). we can see that the results are not as good as the ones from MV-Bytetrack. This is probably in part due to the fact that they use Petrv2 which performs better than BEVFormer.
 
+Furthermore, we couldn't submit something for the video, at the 14h deadline, as our tracker requires a detector to preprocess the video. We have contacted other groups that were assigned to 3D detections, but sadly couldn't find an arrangment to make it work in time. We've also tried multiple times, throughout the entire length of the project, to make any SOTA detector work, but it just wouldn't happen. However, we are confident that our tracker would've been up for the task, and would've provided the necessary results.
+
 ## Acknowledgement
 
 Special thanks to our TA Vladimir Somers for his advices and supervision throughout this project.
