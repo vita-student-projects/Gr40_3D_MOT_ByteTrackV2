@@ -120,10 +120,11 @@ sample_result {
 ## Experimental Setup & Results
 
 We tested our implementation using two detectors on the validation set. Those are MEGVII and BEVFormer. 
-|  metrics | NDS  |  mAP |
-| :------------: | :------------: | :------------: |
-| MEGVII  |  62,8 | 51,9  |
-|  BEVFORMER |  51,7 | 41,6  |
+|  metrics | NDS  |  mAP | Type | 
+| :------------: | :------------: | :------------: | :------------: |
+| MEGVII  |  62,8 | 51,9  | Lidar |
+| BEVFORMER |  51,7 | 41,6  | Camera |
+| Transfusion | 71,7 | 68,9 | Camera + Lidar |
 
 We tested multiple thresholds for the Jonker-Volgenant algorithm (score in the similarity matrix above this value wont be considered for the optimization) and for the Dhigh and Dlow separation.  From there we used the best results to run vor evaluation and get final results.
 
@@ -145,11 +146,12 @@ Similarly as before, we aim for the best amota and IDS score. In this case, it m
 By using all of these values, we have optained the following results:
 |  metrics 	 | amota          |   amotp        | motar          |  mota          | motp | 
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
-| BEVFORMER(validation)  |  0,299 | 1,263          | 0,523          | 0,2559         | 0,7227 |
 | MEGVII(validation)  |           |                |                |                | |
-| Transfusion(testing \*) | 0,4768 | 0,977         | 0,739          |  0,4335 | 0,289 |
+| BEVFORMER(validation)  |  0,299 | 1,263          | 0,523          | 0,2559         | 0,7227 |
+| Transfusion(testing \*) | 0,4768 | 0,977         | 0,739          |  0,4335        | 0,289 |
 
-Please note that the first two results were obtained by doing evaluation on our own machines, while the transfusion one, was done on the nuscene server, on the test set used for their leaderboard. 
+* Please note that the first two results were obtained by doing evaluation on our own machines, while the transfusion one, was done on the nuscene server, on the test set used for their leaderboard. This difference is due to the fact that we only had access to the test set detections from transfusion, and because we are limited in terms of submission to the nuscene evaluation's servers.
+* 
 ## How to run
 
 For this, you will need anaconda installed. You can follow the instructions [here](https://www.anaconda.com/download). Then, in anaconda's terminal, run the following:
