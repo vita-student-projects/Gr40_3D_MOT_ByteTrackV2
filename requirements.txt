@@ -6,3 +6,4 @@ nuscenes_devkit==1.1.10
 pandas==1.5.3
 pyquaternion==0.9.9
 scipy==1.9.1
+motmetrics ==1.1.3
