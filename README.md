@@ -153,6 +153,10 @@ For this, you will need anaconda installed. You can follow the instructions [her
 	cd DLAV
 	pip install -r requirements.txt
 
+
+You may encounter an issue while installing lap via the requirement file. If so, simply run
+
+	pip install lap==0.4.0
 Install nuScene:
 
 	git clone https://github.com/nutonomy/nuscenes-devkit.git
