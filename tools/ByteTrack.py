@@ -82,7 +82,7 @@ def association(Detections, Tracklets, hung_thresh):
         track['state'] = det_state # update the tracklet with the detection state
         track['Found'] = True # found it
         track['nb_lost_frame'] = 0 # set the number of lost frame to 0 as it has been found
-        track['kalman'].update(det_state, det['detection_score'])
+        track['kalman'].update(det_state)  # If you want to use the R update from the original paper, use this instead : track['kalman'].update(det_state, det['detection_score'])
         track['velocity'] = velocity
         track['tracking_score'] = det["detection_score"]
     if len(Detections) == 0:
