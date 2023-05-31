@@ -24,6 +24,10 @@ from Kalman import KalmanFilter
 import covariance
 
 #----Global variables----#
+
+DETECTION_PATH_TRANSFUSION = "data/detection_transfusion/"
+DETECTION_PATH_MEGVII      = "data/detection_megvii/"
+TRACKING_PATH              = "data/tracking/"
 TRAINVAL_PATH              = "data/trainval/"
 TEST_PATH                  = "data/test/"
 
@@ -130,7 +134,8 @@ def get_common_tokens(token_list, pred):
 
 def format_to_nuscene(sample_token, tracks):
   """formats the tracks into a dictionary that can be used by the nuscene evaluation tool"""
-  rotation = Quaternion(axis=[0, 0, 1], angle=tracks['state'][6]).elements
+  rotation = ma.quaternion_from_euler(0,0,tracks['state'][6])
+  
   sample_result = {
     'sample_token': sample_token,
     'translation': [tracks['state'][0], tracks['state'][1], tracks['state'][2]],
@@ -166,13 +171,16 @@ def load_data(dataset=None, detection_path=None, eval_split=None, verbose=True):
     if verbose:
         print("✅Predictions succesfully loaded✅")
 
-    if eval_split is not None:
+    if eval_split is not 'test':
         if verbose:
             print("⚙️Loading ground truth...⚙️")
         gt_boxes = load_gt(nusc, eval_split = eval_split, box_cls=DetectionBox, verbose=True)
         gt = gt_boxes.serialize() 
         if verbose:
             print("✅Ground truth succesfully loaded✅")
+    else:
+        gt = None
+            
 
     # we want to make sure that we only keep the samples that have detections in the detections val json
     val_token_list = []
@@ -292,6 +300,7 @@ def ByteTrack(sample_tokens, pred, track_index, confidence_threshold, hung_thres
 #--------------------Execution part--------------------#
 
 def init(dataset, detection_path, eval_split, output_name, confidence_threshold=0.4, hungarian_threshold=0.6):
+    print("🔐Loading data🔐")
     nusc, gt, pred = load_data(dataset, detection_path, eval_split)
     val_token_list = []
     results = {} 
@@ -303,7 +312,7 @@ def init(dataset, detection_path, eval_split, output_name, confidence_threshold=
     for scene_index in range(len(val_token_list)):
         scene = val_token_list[scene_index]
         
-        history, track_index = ByteTrack(scene, pred ,track_index, confidence_threshold, hungarian_threshold, verbose = True)
+        history, track_index = ByteTrack(scene, pred ,track_index, confidence_threshold, hungarian_threshold, verbose = False)
         results = {**results, **convert_history_to_dict(scene, history)}
-    save_to_json(history, output_name+".json")
+    save_to_json(results, output_name+".json")
 
