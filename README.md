@@ -119,7 +119,7 @@ sample_result {
 ```
 ## Experimental Setup & Results
 
-We tested our implementation using two detectors on the validation set. Those are MEGVII and BEVFormer. 
+We tested our implementation using three detectors on the validation set.
 |  metrics | NDS  |  mAP | Type | 
 | :------------: | :------------: | :------------: | :------------: |
 | MEGVII  |  62.8 | 51.9  | Lidar |
