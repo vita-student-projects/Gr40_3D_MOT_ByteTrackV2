@@ -15,8 +15,6 @@ For more details please refer to [BytetrackV2](https://arxiv.org/abs/2303.15334)
 
 The detections on the training and validation set of nuscenes were the ones from MEGVII\[4\] (lidar based), that were provided by nuScene\[1\]. Those detections were the ones we mostly used to conduct our experiments. Thanks to another group we also got access to the detection from BEVFormer that is using camera only. 
 
-https://github.com/GKrafft2/DLAV/blob/3d088c33703cb8a58fd9e73bb736efdaf0163f2d/ByteTrack.py#L226-L234
-
 We brought some modification to the original algorithm, as it may increase slightly the performance, or the speed of execution.
 
 - We removed the fact that there are multiple array for the tracks, and simply added a flag `Found` to each tracklet. When  `tracks['Found']==True`, the algorithm will immediately set the corresponding similarity value to infinity, instead of computing it.
@@ -163,7 +161,22 @@ Install nuScene:
 
 There are multiple notebook that can help you run our code. Mainly, [ByteTrack.ipynb](https://github.com/GKrafft2/DLAV/blob/main/ByteTrack.ipynb "ByteTrack.ipynb"). Simply running the cell should provide you with a json with the `output_name`. You will also need to provide the files for the detections in the same manner as described bellow
 
-ADD PATH TREE
+```shell script
+└── data
+│	├──detection_megvii (or any detections of your likings)
+│	│	└── megvii_val.json
+│	├── trainval
+│	│	├── maps
+│	│	├── samples
+│	│	└── v1.0-trainval
+│   	├── test
+│	│	├── maps
+│	│	└── v1.0-test
+│   	├── tracking
+│   	├── evaluation_results
+│   	└── config
+```
+
 
 Additionnaly, you can run XXX notebook if you want to be provided with visual output in the form of the gifs presented above.
 
