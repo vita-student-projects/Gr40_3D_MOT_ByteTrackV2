@@ -165,7 +165,7 @@ Install nuScene:
 There are multiple notebook that can help you run our code. Mainly, [ByteTrack.ipynb](https://github.com/GKrafft2/DLAV/blob/main/ByteTrack.ipynb "ByteTrack.ipynb"). Simply running the cell should provide you with a json with the `output_name`. You will also need to provide the files for the detections in the same manner as described bellow
 
 ```shell script
-└── data
+├──  data
 │	├──detection_megvii (or any detections of your likings)
 │	│	└── megvii_val.json
 │	├── trainval
@@ -176,8 +176,9 @@ There are multiple notebook that can help you run our code. Mainly, [ByteTrack.i
 │	│	├── maps
 │	│	└── v1.0-test
 │   	├── tracking
-│   	├── evaluation_results
-│   	└── config
+├── evaluation_results
+├── tools
+└── config
 ```
 
 
