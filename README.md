@@ -200,11 +200,13 @@ We do not provide any dataset.py, train.py or inference.py, as our method do not
 
 ## Conclusion
 
-We provide you our version of the ByteTrack, fully open-source, as mentionned in the goal of this project. This method is extremely performant, but hasn't been tested on current SOTA detectors, despite our best effort and collaboration with other detector's developper, such as [BEVDET](https://github.com/HuangJunJie2017/BEVDet "BEVDET"), for instance. We leave this up to anyone who would like to evaluate this model, against the very best.
+We provide our version of the ByteTrackv2, fully open-source, as mentionned in the goal of this project. This method works, but hasn't been tested on current SOTA detectors, despite our best effort and collaboration with other detector's developper, such as [BEVDET](https://github.com/HuangJunJie2017/BEVDet "BEVDET"), for instance. We leave this up to anyone who would like to evaluate this model, against the very best.
 
 |  metrics 	 | amota          |   amotp        | motar          |  mota          | motp | 
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
 | MVBytetrack  |     0.564      |     1.005           |       0.784         |       0.471         | 0.616|
+
+Even if we didn't get access to SOTA detectors, we can compare the results obtained by MVBytetrack, which currently ranks 5th in the nuscenes tracking task leaderboard with a camera-only detector. Comparing this with our camera-only tracking scenario (BEVFormer + ByteTrack). we can see that the results are not as good as the ones from MV-Bytetrack. This is probably in part due to the fact that they use Petrv2 which performs better than BEVFormer.
 
 ## Acknowledgement
 

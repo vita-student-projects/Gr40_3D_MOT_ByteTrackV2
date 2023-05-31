@@ -50,4 +50,4 @@ class KalmanFilter(object):
         self.E = self.E + np.dot(K, self.i) 
         self.P = self.P - np.dot(K, np.dot(self.H, self.P))
         if det_score is not None:
-            self.R = 10*(1-det_score)**2 * self.R
+            self.R = 100*(1-det_score)**2 * self.R
