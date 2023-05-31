@@ -150,8 +150,9 @@ By using all of these values, we have optained the following results:
 | BEVFORMER(validation)  |  0,299 | 1,263          | 0,523          | 0,2559         | 0,7227 |
 | Transfusion(testing \*) | 0,4768 | 0,977         | 0,739          |  0,4335        | 0,289 |
 
-* Please note that the first two results were obtained by doing evaluation on our own machines, while the transfusion one, was done on the nuscene server, on the test set used for their leaderboard. This difference is due to the fact that we only had access to the test set detections from transfusion, and because we are limited in terms of submission to the nuscene evaluation's servers.
-* 
+\* Please note that the first two results were obtained by doing evaluation on our own machines, while the transfusion one, was done on the nuscene server, on the test set used for their leaderboard. This difference is due to the fact that we only had access to the test set detections from transfusion, and because we are limited in terms of submission to the nuscene evaluation's servers.
+
+The results are widely different, which is to be expected. They come from 3 different type of detectors, which weren't SOTA at the same time.
 ## How to run
 
 For this, you will need anaconda installed. You can follow the instructions [here](https://www.anaconda.com/download). Then, in anaconda's terminal, run the following:
@@ -200,9 +201,13 @@ We do not provide any dataset.py, train.py or inference.py, as our method do not
 
 We provide you our version of the ByteTrack, fully open-source, as mentionned in the goal of this project. This method is extremely performant, but hasn't been tested on current SOTA detectors, despite our best effort and collaboration with other detector's developper, such as [BEVDET](https://github.com/HuangJunJie2017/BEVDet "BEVDET"), for instance. We leave this up to anyone who would like to evaluate this model, against the very best.
 
+|  metrics 	 | amota          |   amotp        | motar          |  mota          | motp | 
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+| MVBytetrack  |           |                |                |                | |
+
 ## Acknowledgement
 
-special dedicasse vlad
+Special thanks to our TA Vladimir Somers for his advices and supervision throughout this project.
 
 
 ## References
